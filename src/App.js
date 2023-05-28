@@ -3,22 +3,23 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<div className="App">
+    <button
+        onClick={async () => {
+            const fetchApi = async () => {
+                console.log("You have clicked the button!");
+                try {
+                    const response = await fetch(
+                        "http://localhost:8080/custom"
+                    );
+                    const text = await response.text();
+                    console.log("Response: ", text);
+                } catch (e) {
+                    console.error(e);
+                }
+            };fetchApi()
+        }}>Bottone</button>
+</div>
   );
 }
 
